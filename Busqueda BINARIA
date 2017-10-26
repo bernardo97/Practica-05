@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+	int tam,i,j;
+	srand(time(NULL));
+	printf("Dame el tamanio del vector\n");
+	scanf("%d",&tam);
+	int vect[tam];
+	for(i=0;i<tam;i++){
+	vect[i]=rand()%10;
+	}
+	for(i=0;i<tam;i++){
+		printf("[%d]",vect[i]);
+	}
+	int aux=0;
+	printf("\nOrdenacion\n");
+	for(i=0;i<tam;i++){
+		for(j=0;j<tam;j++){
+			if(vect[i]<vect[j]){
+			aux=vect[i];
+			vect[i]=vect[j];
+			vect[j]=aux;
+			}
+		}
+	}
+	for(i=0;i<tam;i++){
+		printf("[%d]",vect[i]);
+	}
+		
+		int n,m,p;
+	printf("\nEscribe el numero que deseas buscar: ");
+	scanf("%d",&n);
+int inf=0,sup=tam;
+int mit; 
+	while (inf<=sup){
+		mit=(inf+sup)/2;
+		if(vect[mit]==n)
+		{
+		printf("dato %d encontrado posicion %d",n,mit);
+		break;
+		}
+			if(vect[mit]>n){
+			sup=mit;
+			mit=(inf+sup)/2;
+			}	
+				if (vect[mit]<n){
+				inf=mit;
+				mit=(inf+sup)/2;
+			}
+
+		}
+return 0;
+}
